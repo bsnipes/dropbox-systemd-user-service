@@ -2,7 +2,20 @@
 
 This is a systemd service file to start up dropbox on a per user basis on boot.
 
-This assumes each user installed dropbox headless via the command line: https://www.dropbox.com/en/install?os=lnx and has setup his/her account such that running dropboxd manually works.
+The original version [joeroback/dropbox](https://github.com/joeroback/dropbox)
+use system services. Here is the user service version, so users can start and
+stop their own service, without `sudo`.
+
+This assumes the user installed dropbox headless via the command line: https://www.dropbox.com/en/install?os=lnx and has dropboxd working manually (account setup...).
+
+# Autostart
+
+
+```
+mkdir -p ~/.config/systemd/user/
+sudo loginctl enable-linger $USER
+wget -O ~/.config/systemd/user/dropbox.service https://raw.githubusercontent.com/RandomReaper/dropbox-systemd-user-service/master/dropbox.service
+```
 
 * Place the dropbox@.service file into /etc/systemd/system
 * Reload the daemons: systemctl daemon-reload
