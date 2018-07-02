@@ -17,8 +17,3 @@ sudo loginctl enable-linger $USER
 wget -O ~/.config/systemd/user/dropbox.service https://raw.githubusercontent.com/RandomReaper/dropbox-systemd-user-service/master/dropbox.service
 systemctl --user daemon-reload && systemctl --user enable testservice --now
 ```
-
-* Place the dropbox@.service file into /etc/systemd/system
-* Reload the daemons: systemctl daemon-reload
-* Enable the service for users: systemctl enable dropbox@username
-* Start service: systemctl start dropbox@username
