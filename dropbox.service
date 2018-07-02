@@ -29,7 +29,7 @@ After=local-fs.target network.target
 
 [Service]
 Type=simple
-ExecStart=%h/.dropbox-dist/dropboxd
+ExecStart=/usr/bin/nice 20  /usr/bin/nice/ionice -c 3 %h/.dropbox-dist/dropboxd
 Restart=on-failure
 RestartSec=60
 
