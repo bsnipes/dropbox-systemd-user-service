@@ -15,6 +15,7 @@ This assumes the user installed dropbox headless via the command line: https://w
 mkdir -p ~/.config/systemd/user/
 sudo loginctl enable-linger $USER
 wget -O ~/.config/systemd/user/dropbox.service https://raw.githubusercontent.com/RandomReaper/dropbox-systemd-user-service/master/dropbox.service
+systemctl --user daemon-reload && systemctl --user enable testservice --now
 ```
 
 * Place the dropbox@.service file into /etc/systemd/system
